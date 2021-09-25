@@ -26,6 +26,7 @@ app.use(express.static(__dirname + '/public'));
 // multiple request are coming after staics that why cookies middleware keep after statics
 // For creating the cookies
 app.use(cookieParser());
+
 // created custom middleware to keep track of the count of time user has visited in our website by creating cookies 
 app.use('/about', (req, res, next) => {
     
