@@ -1,0 +1,38 @@
+/* FLEX-BOX */
+.flex{
+    display: flex;
+}
+.item-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-evenly{
+    justify-content: space-evenly;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.justify-end{
+    justify-content: flex-end;
+}
+.column{
+    flex-direction: column;
+}
+.item-start{
+    align-items: flex-start;
+}
+.item-stretch{
+    align-items: stretch;
+}
+.margin-bottom{
+    margin-bottom: 50px;
+  }
+.margin-top{
+    margin-top: 20px;
+}
+/* Flex percentage */
+.flex-20{
+    flex: 0 1 25%;
+}

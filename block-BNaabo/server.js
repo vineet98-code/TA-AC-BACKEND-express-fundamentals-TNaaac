@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-// middleWare
+// middleWare is to plug the entire data from the request and put it into request.body 
 app.use((req, res, next) => {
    console.log(req.method, req.url);
    next();
@@ -17,7 +17,14 @@ app.use(express.json());
 // For nested form extended is true
 app.use(express.urlencoded({ extended: false}));
 
+// for serving the entire css and images
+app.use(express.static(__dirname + '/public'));
 
+
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+})
 
 app.post('/json', (req, res) => {
     // capture the data
