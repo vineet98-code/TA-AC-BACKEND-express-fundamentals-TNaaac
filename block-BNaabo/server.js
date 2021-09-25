@@ -8,6 +8,7 @@ app.use((req, res, next) => {
    next();
 });
 
+
 // add express.json middleware. inbullt middleware don't have to called next() function
 app.use(express.json());
 
