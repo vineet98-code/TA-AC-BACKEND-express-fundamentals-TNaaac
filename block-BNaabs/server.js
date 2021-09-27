@@ -4,15 +4,14 @@ var cookieParser = require('cookie-parser');
 
 var app = express();
 
+// middleware
 app.use(logger('dev'));
-
 app.use(express.json());
-
-app.use(express.urlencoded({ extended : false}))
-
+app.use(express.urlencoded({ extended : false})) // used to capture the form data from user
 app.use(express.static(__dirname + '/public'));
 
 
+// route
 // rendering the Html page
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -23,7 +22,8 @@ app.get('/new', (req, res) => {
 })
 // add a post request on '/new' route and display submitted form data
 app.post('/new', (req, res) => {
-    res.sendFile(__dirname + '/new.html');
+    console.log(req.body);
+    res.json(req.body);
 })
 
 
@@ -38,6 +38,8 @@ app.get('/users/:username', (req, res) => {
     var username  = req.params.username;
     res.send(username);
 })
+
+
 
 app.listen(2000, () => {
     console.log('server listening on port 2k')
