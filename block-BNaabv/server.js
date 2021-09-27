@@ -6,9 +6,9 @@ var app = express();
 
 // middleware
 app.use(logger('dev'));
-app.use(express.json());
+app.use(express.json()); // This middleware is used to parse the json data
 app.use(express.urlencoded({ extended: false })) // used to capture the form data from user
-app.use(express.static(__dirname + '/public'));
+
 
 // custom middleware
 // Whenever we passed next with err it skips all the miiddleware in the line and directly move to the error handler
@@ -30,6 +30,13 @@ app.get('/about', (req, res) => {
     res.send('My name is qwerty');
 })
 
+app.post('/form', (req, res) => {
+    res.json(req.body);
+})
+
+app.post('/json', (req, res) => {
+    res.json(req.body);
+})
 // 404 handler
 // Once the request has check all the router and not able find then only it should move to error handler middleware
 app.use((req, res, next) => {
@@ -41,15 +48,6 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     res.status(500).send(err);
 })
-
-app.post('/form', (req, res) => {
-        res.end();
-})
-
-app.post('/json', (req, res) => {
-        res.end();
-})
-
 
 // // Rendering the HTML form 
 // app.get('/new', (req, res) => {
