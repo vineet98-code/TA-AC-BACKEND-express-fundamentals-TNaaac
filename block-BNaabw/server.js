@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 })
 // Rendering the HTML form 
-app.get('/new', (req, res) => {
-    res.sendFile(__dirname + '/new.html');
+app.get('/projects', (req, res) => {
+    res.sendFile(__dirname + '/projects.html');
 })
 // add a post request on '/new' route and display submitted form data
 app.post('/new', (req, res) => {
@@ -41,6 +41,6 @@ app.get('/users/:username', (req, res) => {
 
 
 
-app.listen(2000, () => {
-    console.log('server listening on port 2k')
+app.listen(4000, () => {
+    console.log('server listening on port 4k')
 });
